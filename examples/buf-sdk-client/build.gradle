@@ -1,0 +1,37 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'buf'
+        url = uri('https://buf.build/gen/maven')
+        credentials(HttpHeaderCredentials) {
+            name = providers.gradleProperty('bufAuthHeaderName')
+                    .orElse(providers.gradleProperty('bufName'))
+                    .getOrElse('Authorization')
+            value = providers.environmentVariable('BUF_TOKEN')
+                    .map { "Bearer ${it}" }
+                    .orElse(providers.gradleProperty('bufAuthHeaderValue'))
+                    .orElse(providers.gradleProperty('bufValue'))
+                    .getOrElse('')
+        }
+        authentication {
+            header(HttpHeaderAuthentication)
+        }
+        content {
+            includeGroup 'build.buf.gen'
+        }
+    }
+}
+
+dependencies {
+    // Version copied from this schema's Buf SDK installation page.
+    implementation 'build.buf.gen:ite-microservice-grpc_ite-microservice-grpc_grpc_java:1.85.1.1.20261106031714.c9adde02b886'
+    runtimeOnly 'io.grpc:grpc-netty-shaded:1.85.1'
+}
+
+application {
+    mainClass = 'example.ProductClient'
+}

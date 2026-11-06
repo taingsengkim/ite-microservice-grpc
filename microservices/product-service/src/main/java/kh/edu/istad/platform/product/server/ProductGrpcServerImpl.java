@@ -52,6 +52,8 @@ public class ProductGrpcServerImpl extends ProductGrpcServiceGrpc.ProductGrpcSer
                 return;
             }
 
+
+
             observer.onNext(ProductResponse.newBuilder()
                     .setProductId(product.getId())
                     .setName(product.getName())

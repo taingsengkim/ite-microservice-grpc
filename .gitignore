@@ -51,3 +51,6 @@ project_tree.txt
 *.local
 env.sh
 .envenv.sh
+
+# Local credentials for the private Buf SDK example
+/examples/buf-sdk-client/gradle.properties

@@ -1,0 +1,15 @@
+services:
+  buf:
+    image: bufbuild/buf:1.75.0
+    working_dir: /workspace
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - buf build && buf lint && echo 'Buf build and lint passed'
+    volumes:
+      - ../../buf.yaml:/workspace/buf.yaml:ro
+      - ../../istad-common/istad-common-grpc/src/main/proto:/workspace/istad-common/istad-common-grpc/src/main/proto:ro
+      - buf-home:/root
+    restart: "no"
+
+volumes:
+  buf-home:
