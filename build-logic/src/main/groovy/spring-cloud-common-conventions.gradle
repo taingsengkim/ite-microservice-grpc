@@ -1,0 +1,18 @@
+plugins {
+    id 'spring-boot-common-conventions'
+}
+
+def libs = extensions.getByType(VersionCatalogsExtension).named("libs")
+
+
+dependencyManagement {
+    imports {
+        mavenBom(libs.findLibrary("spring-cloud-bom").get().get().toString())
+    }
+}
+
+dependencies {
+
+    // Shared production monitoring & health checking
+    implementation libs.findLibrary('spring-boot-starter-actuator').get().get()
+}

@@ -1,0 +1,9 @@
+plugins {
+    id 'spring-boot-common-conventions'
+}
+
+dependencies {
+
+    implementation libs.spring.boot.starter.webmvc
+    testImplementation libs.spring.boot.starter.test.webmvc
+}

@@ -1,0 +1,30 @@
+plugins {
+    id 'groovy-gradle-plugin'
+}
+
+repositories {
+    gradlePluginPortal()
+    mavenCentral()
+}
+
+//gradlePlugin {
+//    plugins {
+//        javaCommonConventions {
+//            id = "java-common-conventions"
+//            implementationClass = 'java-common-conventions'
+//        }
+//        springCommonConventions {
+//            id = 'spring-common-conventions'
+//            implementationClass = 'spring-common-conventions'
+//        }
+//        springBootCommonConventions {
+//            id = 'spring-boot-common-conventions'
+//            implementationClass = 'spring-boot-common-conventions'
+//        }
+//    }
+//}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:4.1.1'
+    implementation 'io.spring.gradle:dependency-management-plugin:1.1.7'
+}

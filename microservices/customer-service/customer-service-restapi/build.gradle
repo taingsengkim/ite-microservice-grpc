@@ -1,0 +1,14 @@
+plugins {
+    id 'spring-common-conventions'
+}
+
+dependencies {
+
+    implementation 'kh.edu.istad:istad-common-webflux'
+
+    api 'kh.edu.istad:customer-application-service'
+
+    // starter-webflux'
+    implementation libs.spring.boot.starter.webflux
+    implementation libs.spring.boot.starter.validation
+}

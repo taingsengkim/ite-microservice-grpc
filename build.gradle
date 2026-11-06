@@ -1,0 +1,3 @@
+plugins {
+    id 'base' // Provides root :clean and :build lifecycle tasks to coordinate subprojects
+}

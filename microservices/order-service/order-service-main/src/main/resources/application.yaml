@@ -1,0 +1,82 @@
+server:
+  port: 3000
+
+spring:
+  application:
+    name: order-service
+
+  http:
+    serviceclient:
+      customers-service:
+        # If running with Consul: http://customer-service
+        # If running directly without Consul: http://localhost:9091
+        base-url: http://customer-service
+  security:
+    oauth2:
+      client:
+        registration:
+          customer-client:
+            provider: authorization-server
+            client-id: order-service-client
+            client-secret: secret123
+            authorization-grant-type: client_credentials
+            scope:
+              - customer.read
+              - customer.write
+        provider:
+          authorization-server:
+            issuer-uri: http://localhost:9000
+
+  config:
+    import: "optional:consul:"
+
+  profiles:
+    active: dev
+
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        service-name: order-service
+        instance-id: ${spring.application.name}:${server.port}
+        ip-address: 127.0.0.1
+        prefer-ip-address: true
+        health-check-url: http://host.docker.internal:${server.port}/actuator/health
+        health-check-interval: 10s
+        health-check-critical-timeout: 1m
+        deregister: true
+
+      config:
+        enabled: true
+        format: yaml
+        watch:
+          enabled: true
+          delay: 5000
+          wait-time: 15
+
+  r2dbc:
+    url: r2dbc:postgresql://localhost:9543/order_db
+    username: iteuser
+    password: qwerqwer
+
+logging:
+  level:
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.web.reactive.function.client: DEBUG
+
+grpc:
+  client:
+    # ឈ្មោះ Client ដែលត្រូវនឹង @GrpcClient
+    product-service:
+      address: 'static://localhost:3333'
+      negotiation-type: plaintext
+
+#  liquibase:
+#    enabled: true
+#    drop-first: true
+#    change-log: classpath:db/changelog/db.changelog-master.yaml
+#    url: jdbc:postgresql://localhost:9543/order_db
+#    user: iteuser
+#    password: qwerqwer
+#    driver-class-name: org.postgresql.Driver

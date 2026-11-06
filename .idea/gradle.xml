@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/build-logic" name="build-logic">
+                <projects>
+                  <project path="$PROJECT_DIR$/build-logic" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/infrastructure" name="infrastructure">
+                <projects>
+                  <project path="$PROJECT_DIR$/infrastructure" />
+                  <project path="$PROJECT_DIR$/infrastructure/config-server" />
+                  <project path="$PROJECT_DIR$/infrastructure/gateway" />
+                  <project path="$PROJECT_DIR$/infrastructure/oauth2-server" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/istad-common" name="istad-common">
+                <projects>
+                  <project path="$PROJECT_DIR$/istad-common" />
+                  <project path="$PROJECT_DIR$/istad-common/istad-common-domain" />
+                  <project path="$PROJECT_DIR$/istad-common/istad-common-restapi" />
+                  <project path="$PROJECT_DIR$/istad-common/istad-common-swagger" />
+                  <project path="$PROJECT_DIR$/istad-common/istad-common-webclient" />
+                  <project path="$PROJECT_DIR$/istad-common/istad-common-webflux" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/microservices" name="microservices">
+                <projects>
+                  <project path="$PROJECT_DIR$/microservices" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/microservices/business-service" name="business-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/microservices/business-service" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/microservices/customer-service" name="customer-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/microservices/customer-service" />
+                  <project path="$PROJECT_DIR$/microservices/customer-service/customer-service-domain" />
+                  <project path="$PROJECT_DIR$/microservices/customer-service/customer-service-domain/customer-application-service" />
+                  <project path="$PROJECT_DIR$/microservices/customer-service/customer-service-domain/customer-domain-core" />
+                  <project path="$PROJECT_DIR$/microservices/customer-service/customer-service-main" />
+                  <project path="$PROJECT_DIR$/microservices/customer-service/customer-service-message" />
+                  <project path="$PROJECT_DIR$/microservices/customer-service/customer-service-persistence" />
+                  <project path="$PROJECT_DIR$/microservices/customer-service/customer-service-restapi" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/microservices/iam-service" name="iam-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/microservices/iam-service" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/microservices/order-service" name="order-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/microservices/order-service" />
+                  <project path="$PROJECT_DIR$/microservices/order-service/order-service-client" />
+                  <project path="$PROJECT_DIR$/microservices/order-service/order-service-domain" />
+                  <project path="$PROJECT_DIR$/microservices/order-service/order-service-domain/order-application-service" />
+                  <project path="$PROJECT_DIR$/microservices/order-service/order-service-domain/order-domain-core" />
+                  <project path="$PROJECT_DIR$/microservices/order-service/order-service-main" />
+                  <project path="$PROJECT_DIR$/microservices/order-service/order-service-persistence" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/microservices/product-service" name="product-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/microservices/product-service" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/build-logic" />
+            <option value="$PROJECT_DIR$/infrastructure" />
+            <option value="$PROJECT_DIR$/infrastructure/config-server" />
+            <option value="$PROJECT_DIR$/infrastructure/gateway" />
+            <option value="$PROJECT_DIR$/infrastructure/oauth2-server" />
+            <option value="$PROJECT_DIR$/istad-common" />
+            <option value="$PROJECT_DIR$/istad-common/istad-common-domain" />
+            <option value="$PROJECT_DIR$/istad-common/istad-common-restapi" />
+            <option value="$PROJECT_DIR$/istad-common/istad-common-swagger" />
+            <option value="$PROJECT_DIR$/istad-common/istad-common-webclient" />
+            <option value="$PROJECT_DIR$/istad-common/istad-common-webflux" />
+            <option value="$PROJECT_DIR$/microservices" />
+            <option value="$PROJECT_DIR$/microservices/business-service" />
+            <option value="$PROJECT_DIR$/microservices/customer-service" />
+            <option value="$PROJECT_DIR$/microservices/customer-service/customer-service-domain" />
+            <option value="$PROJECT_DIR$/microservices/customer-service/customer-service-domain/customer-application-service" />
+            <option value="$PROJECT_DIR$/microservices/customer-service/customer-service-domain/customer-domain-core" />
+            <option value="$PROJECT_DIR$/microservices/customer-service/customer-service-main" />
+            <option value="$PROJECT_DIR$/microservices/customer-service/customer-service-message" />
+            <option value="$PROJECT_DIR$/microservices/customer-service/customer-service-persistence" />
+            <option value="$PROJECT_DIR$/microservices/customer-service/customer-service-restapi" />
+            <option value="$PROJECT_DIR$/microservices/iam-service" />
+            <option value="$PROJECT_DIR$/microservices/order-service" />
+            <option value="$PROJECT_DIR$/microservices/order-service/order-service-client" />
+            <option value="$PROJECT_DIR$/microservices/order-service/order-service-domain" />
+            <option value="$PROJECT_DIR$/microservices/order-service/order-service-domain/order-application-service" />
+            <option value="$PROJECT_DIR$/microservices/order-service/order-service-domain/order-domain-core" />
+            <option value="$PROJECT_DIR$/microservices/order-service/order-service-main" />
+            <option value="$PROJECT_DIR$/microservices/order-service/order-service-persistence" />
+            <option value="$PROJECT_DIR$/microservices/product-service" />
+          </set>
+        </option>
+        <option name="myGradleHome" value="" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

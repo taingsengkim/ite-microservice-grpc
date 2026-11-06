@@ -1,0 +1,21 @@
+plugins {
+    // id 'spring-boot-common-conventions' // Applies org.springframework.boot => (makes it a runnable app)
+    id 'spring-common-conventions' // Uses java-library & BOM, builds a reusable library JAR
+}
+
+dependencies {
+
+    // API dependency: provides DomainException and base domain models downstream
+    api project(':istad-common-domain')
+
+    // implementation 'kh.edu.istad:istad-common-domain'
+
+    // Reactive WebFlux starter
+    api libs.spring.boot.starter.webflux
+
+    testImplementation libs.spring.boot.starter.test.webflux
+}
+
+//bootJar {
+//
+//}

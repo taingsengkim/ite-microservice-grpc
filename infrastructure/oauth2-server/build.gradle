@@ -1,0 +1,30 @@
+
+plugins {
+    id 'spring-boot-common-conventions'
+}
+
+dependencies {
+
+    // Spring Authorization Server
+    implementation libs.spring.boot.starter.security.oauth2.authorization.server
+    implementation libs.spring.boot.starter.security
+
+    implementation 'commons-logging:commons-logging:1.3.4'
+
+    // Spring Data JPA & PostgresSQL
+    implementation libs.spring.boot.starter.data.jpa
+    implementation libs.postgresql
+
+    // WebMVC (required for Authorization Server endpoints)
+    implementation libs.spring.boot.starter.webmvc
+
+    // Jackson module for serializing Security & OAuth2 classes into the database
+    implementation libs.jackson.databind
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+
+    testImplementation libs.spring.boot.starter.test
+
+}

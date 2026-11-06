@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+}
+
+def libs = extensions.getByType(VersionCatalogsExtension).named("libs")
+
+group = 'kh.edu.istad'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(
+                libs.findVersion("java-version").get().requiredVersion.toInteger()
+        )
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom(libs.findLibrary("spring-boot-bom").get().get().toString())
+    }
+}
+
+dependencies {
+
+    // Lombok
+    compileOnly libs.findLibrary('lombok').get().get()
+    annotationProcessor libs.findLibrary('lombok').get().get()
+
+    // mapstruct
+    compileOnly libs.findLibrary('mapstruct').get().get()
+    libs.findBundle('mapstruct').get().get().forEach { dep ->
+        annotationProcessor dep
+    }
+
+    // Base Spring logging and validation
+    implementation libs.findLibrary('spring-boot-starter-logging').get().get()
+    implementation libs.findLibrary('spring-boot-starter-validation').get().get()
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}

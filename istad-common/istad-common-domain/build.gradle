@@ -1,0 +1,8 @@
+plugins {
+    // id 'java-common-conventions'
+    alias(libs.plugins.java.common.conventions)
+}
+
+dependencies {
+
+}

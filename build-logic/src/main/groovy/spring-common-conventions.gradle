@@ -1,0 +1,42 @@
+plugins {
+    id 'java-library'
+    id 'io.spring.dependency-management'
+}
+
+group = 'kh.edu.istad'
+version = '1.0.0'
+
+def libs = extensions.getByType(VersionCatalogsExtension).named("libs")
+
+java {
+    toolchain {
+        libs.findVersion('java-version').get().requiredVersion.toInteger()
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom(libs.findLibrary("spring-boot-bom").get().get().toString())
+    }
+}
+
+dependencies {
+
+    // Lombok
+    compileOnly libs.findLibrary('lombok').get().get()
+    annotationProcessor libs.findLibrary('lombok').get().get()
+
+    // mapstruct
+    compileOnly libs.findLibrary('mapstruct').get().get()
+    libs.findBundle('mapstruct').get().get().forEach { dep ->
+        annotationProcessor dep
+    }
+
+    // Base Spring logging and validation
+    implementation libs.findLibrary('spring-boot-starter-logging').get().get()
+    implementation libs.findLibrary('spring-boot-starter-validation').get().get()
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}

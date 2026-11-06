@@ -1,0 +1,29 @@
+plugins {
+    id 'spring-boot-common-conventions'
+    id 'spring-cloud-common-conventions'
+}
+
+dependencies {
+
+    implementation "kh.edu.istad:istad-common-swagger"
+
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
+    implementation 'kh.edu.istad:order-domain-core'
+    implementation 'kh.edu.istad:order-service-client'
+    implementation 'kh.edu.istad:order-application-service'
+    implementation 'kh.edu.istad:order-service-persistence'
+
+    // Schema Migration
+    implementation libs.spring.boot.starter.liquibase
+    runtimeOnly libs.postgresql
+    runtimeOnly libs.r2dbc.postgresql
+
+    implementation libs.spring.boot.starter.webflux
+
+    implementation libs.spring.cloud.starter.consul.discovery
+    implementation libs.spring.cloud.starter.consul.config
+
+    implementation libs.spring.boot.starter.actuator
+}
+

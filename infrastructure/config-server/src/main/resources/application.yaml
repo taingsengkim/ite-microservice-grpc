@@ -1,0 +1,31 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "health,info,refresh"
+
+  profiles:
+    #active: git # (native) config server reads from local file system
+    active: composite # Combines Git + Vault
+
+  cloud:
+    config:
+      server:
+        #composite: # for composite profile config server
+#        native:
+#          search-locations:
+#            - file:/Users/thornie/Documents/ITE-Gen3/advanced course/istad-ite-platform-learn/configuration-repo/
+#            - file:/Users/thornie/Documents/ITE-Gen3/advanced course/istad-ite-platform-learn/configuration-repo/{application}/
+
+        git:
+          uri: https://github.com/thorniedev/microservices-configuration.git
+          username: thorniedev
+          password: ${GIT_TOKEN}
+          default-label: main
+          search-paths: "/**"
+          order: 2

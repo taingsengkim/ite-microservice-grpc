@@ -1,0 +1,13 @@
+plugins {
+    id 'spring-cloud-common-conventions'
+}
+
+dependencies {
+
+    implementation libs.spring.cloud.config.server
+
+    implementation libs.spring.vault.core
+
+    implementation libs.spring.boot.starter.actuator
+
+}

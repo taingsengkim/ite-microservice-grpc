@@ -1,0 +1,5 @@
+rootProject.name = 'istad-ite-platform-learn'
+
+includeBuild 'istad-common'
+includeBuild 'microservices'
+includeBuild 'infrastructure'

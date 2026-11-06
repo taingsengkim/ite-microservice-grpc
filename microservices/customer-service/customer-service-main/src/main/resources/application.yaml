@@ -1,0 +1,37 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: customer-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
+
+  config:
+    import: "optional:consul:localhost:8500"
+
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        health-check-url: http://host.docker.internal:${server.port}/actuator/health
+        ip-address: 127.0.0.1
+        prefer-ip-address: true
+        service-name: customer-service
+        instance-id: ${spring.application.name}-${random.value}
+
+  mongodb:
+    password: admin
+    port: 27018
+    authentication-database: admin
+    username: mongo
+    database: db_customer
+    host: localhost
+
+logging:
+  level:
+    io.netty.resolver.dns.DnsServerAddressStreamProviders: OFF

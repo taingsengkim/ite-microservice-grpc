@@ -1,0 +1,8 @@
+plugins {
+    id 'spring-common-conventions'
+}
+dependencies {
+
+    api libs.spring.boot.starter.webflux
+
+}

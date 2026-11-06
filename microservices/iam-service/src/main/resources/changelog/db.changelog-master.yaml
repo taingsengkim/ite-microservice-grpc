@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: changelog/ddl/001-create-authorization-table.sql
+  - include:
+      file: changelog/ddl/002-create-authorization-consent-table.sql
+  - include:
+      file: changelog/ddl/003-create-client-table.sql
+  - include:
+      file: changelog/ddl/004-create-new-domain.sql

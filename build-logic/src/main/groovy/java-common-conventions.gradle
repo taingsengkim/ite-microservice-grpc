@@ -1,0 +1,23 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'kh.edu.istad'
+version = '1.0.0'
+
+def libs = extensions.getByType(VersionCatalogsExtension)
+        .named("libs")
+
+java {
+    toolchain {
+        libs.findVersion('java-version').get().requiredVersion.toInteger()
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
+}
